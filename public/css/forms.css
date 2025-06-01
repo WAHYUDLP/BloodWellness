@@ -1,0 +1,48 @@
+/* Forms CSS */
+label {
+    display: block;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-sm);
+    font-weight: var(--weight-medium);
+    color: var(--text-light);
+}
+
+input,
+select {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-size: var(--font-md);
+    transition: border-color var(--transition-fast);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--border-focus);
+}
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: var(--spacing-md);
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--text-light);
+    pointer-events: none;
+}
+
+select {
+    appearance: none;
+    padding-right: var(--spacing-xl);
+}

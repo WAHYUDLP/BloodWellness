@@ -1,0 +1,67 @@
+/* Animations CSS */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-add-email,
+.btn-logout {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-edit::after,
+.btn-delete::after,
+.btn-add-email::after,
+.btn-logout::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.5s, height 0.5s, opacity 0.5s;
+}
+
+.btn-edit:active::after,
+.btn-delete:active::after,
+.btn-add-email:active::after,
+.btn-logout:active::after {
+    width: 300px;
+    height: 300px;
+    opacity: 1;
+    transition: width 0.5s, height 0.5s, opacity 0s;
+}
+
+.nav-links li a {
+    transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+    transform: translateY(-1px);
+}
+
+.avatar img {
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover img {
+    transform: scale(1.05);
+}

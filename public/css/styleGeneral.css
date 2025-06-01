@@ -1,0 +1,1402 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.bodyLogin {
+    background-image: url('aset/background.webp?v=1');
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+
+
+}
+
+.bodyKal {
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    background-color: #6E8E59;
+
+}
+
+body {
+    background-color: #6E8E59;
+    /* Sesuaikan agar mirip latar belakang gambar */
+
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    margin: 0;
+    padding: 0;
+    /* Ganti dengan path gambar */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Overlay hitam transparan */
+body::before {
+    content: "";
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+body.halaman-beranda {
+    background-image: url('aset/background.webp?v=1');
+
+}
+
+/* Halaman Beranda  */
+body.halaman-beranda main {
+    padding-top: 10rem;
+
+}
+
+body.halaman-beranda .slide {
+    text-align: center;
+}
+
+body.halaman-beranda main {
+    margin-top: 3rem;
+}
+
+body.halaman-beranda .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Header merek: logo dan teks di tengah */
+body.halaman-beranda .brand-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+body.halaman-beranda .brand-header .logo .logo2 {
+    width: 60px;
+    margin-bottom: 0.5rem;
+}
+
+body.halaman-beranda .brand-header .brand-name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Garis navigasi (tiga garis bawah) diposisikan di tengah */
+body.halaman-beranda .nav-lines {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 1rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 2;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: #EAFAEA;
+    z-index: 1000;
+    /* Agar navbar tetap di atas elemen lain */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* Tambahkan bayangan agar lebih menonjol */
+}
+
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+}
+
+body {
+    margin-top: 80px;
+    /* Sesuaikan dengan tinggi navbar */
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 0rem;
+    /* Jarak antara logo dan menu navbar */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #790C29;
+}
+
+nav a:focus,
+nav a:active {
+    color: #790C29;
+    border-bottom: 3px solid #790C29;
+}
+
+nav a.active {
+    color: #790C29;
+    border-bottom: 3px solid #790C29;
+}
+
+.auth-buttonsKal {
+    margin-right: -0.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* .auth-buttons {
+    display: flex;
+    margin-right: 3.5rem;
+    gap: 1rem;
+
+    align-items: center;
+} */
+
+.auth-buttonsKal a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #000000;
+    border: 0.1rem solid #6E8E59;
+    padding: 0.5rem 2rem;
+    border-radius: 0.5rem;
+    display: inline-block;
+
+}
+
+.auth-buttonsKal a:hover {
+    background-color: #790C29;
+    color: white;
+    border: none;
+}
+
+.auth-buttonsKal a:active {
+    background-color: #790C29;
+    color: white;
+}
+
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1.25rem;
+    box-sizing: border-box;
+    margin-top: -1rem;
+}
+
+/* Logo dan Nama BloodWellness */
+.brand-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.brand-logo {
+    width: 10px;
+    height: 10px;
+}
+
+.brand-name {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.brand-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    display: none;
+    /* Secara default disembunyikan (desktop) */
+}
+
+.logo-container {
+    display: flex;
+    /* Menggunakan flexbox */
+    align-items: center;
+    /* Membuat logo dan teks sejajar */
+}
+
+.logo {
+    width: 40px;
+    /* Sesuaikan ukuran logo */
+    height: auto;
+    margin-right: 8px;
+    /* Jarak antara logo dan teks */
+}
+
+.logo2 {
+    width: 40px;
+    /* Sesuaikan ukuran logo */
+    height: auto;
+    margin-right: 8px;
+    /* Jarak antara logo dan teks */
+}
+
+
+.slider-container {
+    flex: 1 1 50%;
+    position: relative;
+    max-width: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    color: white;
+}
+
+.slides {
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.8s ease-in-out;
+    align-items: flex-start;
+}
+
+.slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+}
+
+.nav-lines {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    padding-left: 0rem;
+}
+
+
+
+.line {
+    width: 30px;
+    height: 4px;
+    background-color: gray;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.line.active {
+    background-color: rgb(255, 255, 255);
+}
+
+
+#password {
+    padding-right: 2px;
+    position: relative;
+}
+
+.register-form p.heading,
+.register-form h3.heading3 {
+    text-align: left;
+    width: 100%;
+}
+
+.register-form p.heading {
+    font-weight: 500;
+
+    margin-bottom: -0.9rem;
+}
+
+.register-form h3.heading3 {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.register-form {
+    width: 100%;
+    max-width: 25rem;
+    margin: 3rem 0 0 3rem;
+    padding: 1.25rem;
+    background: #EAFAEA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+    min-height: calc(100vh - 4.375rem);
+    height: auto;
+    position: relative;
+}
+
+.register-form h2 {
+    text-align: left;
+    margin-bottom: 1.25rem;
+    font-size: 1.375rem;
+    width: 100%;
+}
+
+.register-form form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+}
+
+.register-form label {
+    margin-top: 0.625rem;
+}
+
+.register-form input {
+    padding: 0.625rem;
+    margin-top: 0.3125rem;
+    border: 0.1rem solid #6E8E59;
+    border-radius: 0.3125rem;
+}
+
+.register-form button {
+    background-color: #790C29;
+    color: rgb(255, 255, 255);
+    border: 0.0625rem solid #ccc;
+    margin-top: 0.9375rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    width: 100%;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+
+.register-form button:hover {
+    background-color: #f0f0f0;
+    color: #790C29;
+}
+
+.pass p {
+    margin-top: -0.25rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.remember-forgot a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+
+
+.google-auth {
+    text-align: center;
+    width: 100%;
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.google-auth button {
+    background-color: white;
+    color: black;
+    border: 0.0625rem solid #ccc;
+    margin-top: 0.9375rem;
+    padding: 0.75rem;
+    cursor: pointer;
+    border-radius: 0.3125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    width: 100%;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+
+}
+
+.google-auth button:hover {
+    background-color: #f0f0f0;
+}
+
+.auth-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+footer {
+    margin-top: 4rem;
+    text-align: center;
+    padding: 0.2rem;
+    color: white;
+    padding-bottom: 2rem;
+}
+
+
+.mobile-navbar {
+    display: none;
+    /* Sembunyikan di desktop */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #EAFAEA;
+    box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 10px;
+}
+
+.mobile-navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    /* Bagi ruang secara merata */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.mobile-navbar ul li {
+    flex-grow: 1;
+    /* Biarkan ikon menyesuaikan lebar */
+    text-align: center;
+}
+
+.mobile-navbar ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: #6E8E59;
+    font-size: 1.5rem;
+    text-decoration: none;
+    width: 100%;
+    /* Ikon mengikuti lebar li */
+}
+
+.mobile-navbar ul li a img {
+    width: 24px;
+    /* Ukuran default ikon */
+    height: auto;
+}
+
+.mobile-navbar ul li a:hover {
+    color: #790C29;
+}
+
+.mobile-navbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+.mobile-navbar a:hover {
+    color: #790C29;
+    /* Warna saat hover */
+}
+
+.mobile-navbar i {
+    font-size: 24px;
+}
+
+
+
+/* Garis bawah untuk ikon yang aktif */
+.mobile-navbar a:target::after {
+    content: "";
+    width: 40%;
+    height: 3px;
+    background: #790C29;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    top: 3rem;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 0.5rem;
+    font-size: 12px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #f5c2c7;
+    border-radius: 0.25rem;
+}
+
+
+.success-message {
+    color: #25c237e3;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 0;
+    /* Atur margin kiri */
+    margin-right: auto;
+    /* Atur margin kanan jika perlu */
+
+
+}
+
+
+
+
+@media (max-width: 600px) {
+    .mobile-navbar ul {
+        justify-content: space-around;
+        /* Beri jarak antar ikon */
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+
+    .mobile-navbar ul li a img {
+        width: 20px;
+        /* Kurangi ukuran ikon jika layar lebih kecil */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .brand-text {
+        display: block;
+        margin-left: -0.6rem;
+
+    }
+
+    .logo2 {
+        display: none;
+    }
+
+    .logo {
+        margin-left: -1.1rem;
+
+    }
+
+    nav ul,
+    nav a,
+    nav a:hover,
+    nav a:focus,
+    nav a:active {
+        display: none;
+    }
+
+    .auth-buttonsKal {
+        display: flex;
+        margin-right: -1rem;
+        gap: 0.5rem;
+        align-items: center;
+
+    }
+
+    .auth-buttons {
+        display: flex;
+        margin-right: 3rem;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .auth-buttons a,
+    .auth-buttonsKal a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #000000;
+        border: 0.1rem solid #6E8E59;
+        padding: 0.3rem 1rem;
+        border-radius: 0.5rem;
+        display: inline-block;
+
+    }
+
+    .auth-buttons a:hover,
+    .auth-buttonsKal a:hover {
+        background-color: #790C29;
+        color: white;
+        border: none;
+    }
+
+    .auth-buttons a:active,
+    .auth-buttonsKal a:active {
+        background-color: #790C29;
+        color: white;
+    }
+
+    .mobile-navbar {
+        display: flex;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-container {
+        order: -1;
+        /* Memastikan slider muncul di atas form */
+    }
+
+    .register-form {
+        margin: 3rem auto 0;
+        /* Tengah otomatis tanpa margin kiri */
+        width: 89%;
+    }
+
+    .login-form {
+        margin: 3rem auto 0;
+        width: 90%;
+    }
+
+    .slider-container {
+        flex: 1 1 50%;
+        position: relative;
+        max-width: 500px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        color: white;
+        padding-top: 12rem;
+        padding-bottom: 5rem;
+    }
+
+    .mobile-navbar {
+        padding: 0.1rem;
+        /* Cek apakah paddingnya sama di kedua halaman */
+    }
+
+    .mobile-navbar ul li a {
+        position: relative;
+
+    }
+
+    .mobile-navbar ul li a.active::after,
+    .mobile-navbar ul li a:focus::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 40%;
+        height: 2px;
+        background-color: #790C29;
+        transform: translateX(-50%);
+        border-radius: 2px;
+
+    }
+
+    .mobile-navbar ul li a {
+        color: #6E8E59;
+        /* Warna default ikon */
+        font-size: 24px;
+        padding: 10px;
+        display: inline-block;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .mobile-navbar ul li a.active {
+        color: #790C29;
+        /* Warna ikon ketika halaman aktif */
+    }
+
+    body.halaman-beranda main {
+        padding-top: 3rem;
+        /* atau gunakan padding-top jika lebih sesuai */
+        /* padding-top: 3rem; */
+    }
+
+
+}
+
+
+/* ===== PAGE MENU ===== */
+:root {
+    --green-dark: #6E8E59;
+    --green-medium: #CAE0BC;
+    --green-light: #EAFAEA;
+    --accent: #790C29;
+}
+
+/* ===== Reset & Base ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    line-height: 1.4;
+    color: #000;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* ===== HEADER (untuk semua halaman) ===== */
+header.site-header {
+    background: var(--green-light);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    padding: 0 2rem;
+}
+
+.header-left {
+    flex: 1;
+}
+
+.header-left .logo {
+    height: 40px;
+}
+
+.header-nav {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-list {
+    display: inline-flex;
+    gap: 2rem;
+}
+
+.nav-list a {
+    color: #000;
+    font-weight: 500;
+    padding: .5rem 0;
+    position: relative;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    color: var(--accent);
+}
+
+.nav-list a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--accent);
+}
+
+.header-right {
+    flex: 1;
+    text-align: right;
+}
+
+.btn-logout {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: .5rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    opacity: .9;
+}
+
+/* ===== MAIN PADDING FOR FIXED HEADER ===== */
+/* ===== MAIN PADDING FOR FIXED HEADER ===== */
+body.halaman-menu {
+    padding-top: 40px;
+
+}
+
+
+/* ===== PAGE PLANNER ===== */
+body.halaman-planner {
+    background: var(--green-dark);
+    /* padding-top: -5rem; */
+    margin-top: -4rem;
+    /* <– ideal jika header tingginya 64px */
+}
+
+@media (max-width: 600px) {
+    body.halaman-planner {
+        /* Supaya agak turun, kasih margin-top positif atau padding-top positif */
+        margin-top: 2rem;
+        /* sesuaikan angka ini sesuai kebutuhan */
+        padding-top: 2rem;
+        /* bisa ditambah padding supaya isi agak turun */
+    }
+}
+
+@media (max-width: 768px) {
+    body.halaman-planner {
+        margin-top: 2rem;
+        /* Sesuaikan dengan tinggi header */
+        padding-top: 2rem;
+        /* Tambah padding supaya isi agak turun */
+    }
+}
+
+.planner-intro {
+    background: transparent;
+    text-align: center;
+    padding: 0;
+    /* hilangkan padding tambahan */
+    margin: 0 auto 2rem;
+    /* hanya beri jarak ke bawah */
+}
+
+.planner-intro h1 {
+    font-size: 2rem;
+    color: #fff;
+    margin: 0 0 0.5rem;
+    /* hapus margin atas sepenuhnya */
+}
+
+.planner-intro .subjudul {
+    color: #fff;
+    font-size: .9rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Container utama (menu planner box) */
+.planner-container {
+    background: var(--green-medium);
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    /* Hapus margin-top agar tidak nabrak ke atas */
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--accent);
+}
+
+.planner-container h2 {
+    margin-bottom: 1.5rem;
+}
+
+/* Pilihan Golongan Darah */
+.blood-group-wrapper {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.blood-group {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--green-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: var(--green-dark);
+    cursor: pointer;
+    position: relative;
+    transition: all .3s;
+}
+
+.blood-group.active,
+.blood-group:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.blood-group input {
+    position: absolute;
+    opacity: 0;
+}
+
+/* Input Kalori */
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.calories-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.calories-wrapper input {
+    width: 100px;
+    padding: .5rem;
+    border: 1px solid var(--accent);
+    border-radius: .5rem;
+    text-align: center;
+}
+
+/* Daftar makronutrien */
+.macros {
+    list-style: none;
+    color: var(--accent);
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.macros li {
+    margin: .5rem 0;
+}
+
+.macros li::before {
+    content: "• ";
+    color: var(--accent);
+}
+
+/* =====================================================
+   HANYA untuk pageMenu (halaman rencana + kartu menu)
+   ===================================================== */
+
+/* -------------- tombol ATUR ULANG ------------------- */
+/* ===== RESET BUTTON (FULL WIDTH for form) ===== */
+.btn-buat,
+.btn-reset {
+    display: block;
+    width: 100%;
+    background: var(--green-light);
+    color: #000;
+    border: none;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    font-size: 1rem;
+    font-weight: 800;
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    /* PAKSA font seragam */
+    cursor: pointer;
+    text-align: center;
+    transition: background .3s, transform .2s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.btn-buat:hover,
+.btn-reset:hover {
+    background: var(--green-medium);
+    transform: translateY(-1px);
+    /* background-color: #790C29; */
+}
+
+
+@media (max-width: 600px) {
+    .btn-reset {
+        font-size: 1rem;
+        padding: .75rem;
+        border-radius: .75rem;
+    }
+}
+
+
+
+/* -------------- area Rencana Makan Hari Ini --------- */
+body.halaman-menu .meal-plan {
+    /* container besar */
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+body.halaman-menu .meal-phase {
+    /* setiap blok Sarapan, dst */
+    background: var(--green-medium);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+body.halaman-menu .meal-phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+body.halaman-menu .meal-phase-header h3 {
+    font-size: 1.25rem
+}
+
+body.halaman-menu .generate-icon {
+    font-size: 1.35rem;
+    color: var(--accent);
+    cursor: pointer;
+    transition: .2s transform;
+}
+
+body.halaman-menu .generate-icon:hover {
+    transform: rotate(90deg)
+}
+
+/* -------- deretan kartu (scroll horizontal) --------- */
+/* CSS */
+/* Bungkus gambar + grafik supaya macro-bar bisa absolute terhadap wrap */
+
+/* jadikan recipe-box acuan */
+body.halaman-menu .recipe-box {
+    position: relative;
+}
+
+/* jadikan recipe-box acuan */
+body.halaman-menu .recipe-box {
+    position: relative;
+}
+
+/* override posisi macro-bar */
+body.halaman-menu .macro-bar {
+    position: absolute;
+    top: 16px;
+    /* sesuaikan keinginan */
+    right: 16px;
+    /* akan menempel di sudut kanan recipe-box */
+    width: 180px;
+}
+
+/* non-aktifkan positioning di dalam wrap */
+body.halaman-menu .img-macro-wrap {
+    float: left;
+    width: 45%;
+    position: relative;
+    /* acuan absolute untuk .macro-bar */
+    margin-right: 2rem;
+}
+
+
+/* Atur ulang gambar (masih 100% lebar wrap) */
+body.halaman-menu .img-macro-wrap img {
+    width: 100%;
+    display: block;
+    border-radius: .5rem;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+}
+
+/* Letakkan macro-bar di pojok kanan wrap */
+body.halaman-menu .img-macro-wrap .macro-bar {
+    position: absolute;
+    top: 8px;
+    /* sesuaikan vertikal */
+    left: 100%;
+    /* mulai tepat di luar wrap */
+    margin-left: 1rem;
+    /* jarak antara gambar & grafik */
+    width: 180px;
+    /* atau auto jika suka */
+}
+
+/* ---------- */
+/* Tambahan untuk memaksa judul turun di bawah gambar */
+body.halaman-menu .recipe-title {
+    clear: left;
+    /* hentikan float dari .img-macro-wrap */
+    font-size: 1.75rem;
+    /* sesuaikan ukuran judul */
+    margin: 1.5rem 0;
+    /* spasi atas & bawah */
+}
+
+.recipe-box h2 {
+    clear: left;
+    font-size: 1.75rem;
+    margin: 1.5rem 0;
+}
+
+/* 1. Jadikan wrapper kartu sebagai flex container */
+body.halaman-menu .meal-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* jarak antar kartu */
+    align-items: stretch;
+    /* paksa semua kartu sama tinggi */
+}
+
+/* 2. Link pembungkus kartu supaya bisa flex:1 */
+body.halaman-menu .meal-card-link {
+    flex: 1;
+    /* tiap link/kartu ambil ruang sama */
+    text-decoration: none;
+}
+
+/* 3. Atur struktur kartu */
+body.halaman-menu .meal-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--green-light);
+    border-radius: 1rem;
+    overflow: hidden;
+    height: 100%;
+    /* penting untuk match tinggi container */
+}
+
+/* 4. Gambar seragam */
+body.halaman-menu .meal-card img {
+    width: 100%;
+    height: 160px;
+    /* sesuaikan tinggi yg diinginkan */
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* 5. Konten teks */
+body.halaman-menu .meal-card h4 {
+    margin: 1rem;
+    font-size: 1.25rem;
+    color: #3a3a3a;
+    flex-shrink: 0;
+}
+
+body.halaman-menu .meal-card p.cal {
+    margin: 0 1rem 0.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+body.halaman-menu .meal-card ul {
+    margin: 0 1rem 1rem;
+    padding-left: 1.2rem;
+    margin-top: auto;
+    /* dorong list ke bawah agar isi merata */
+    flex-shrink: 0;
+}
+
+/* 1. Pastikan link kartu tidak mewarisi warna link bawaan */
+body.halaman-menu .meal-card-link,
+body.halaman-menu .meal-card-link:link,
+body.halaman-menu .meal-card-link:visited {
+    color: inherit;
+    /* teks di dalam kartu wariskan warna parent */
+    text-decoration: none;
+}
+
+/* 2. Judul menu: hitam tebal */
+body.halaman-menu .meal-card h4 {
+    color: #000;
+    /* hitam pekat */
+    font-weight: 700;
+    /* cetak tebal */
+}
+
+/* 3. Kalori & bahan: abu-abu */
+body.halaman-menu .meal-card p.cal {
+    color: #000000;
+    /* abu-abu sedang */
+    font-weight: 500;
+    /* agak tebal */
+}
+
+body.halaman-menu .meal-card ul li {
+    color: #666;
+    /* abu-abu sedang, sesuaikan jika perlu */
+    font-weight: 400;
+    /* normal */
+}
+
+/* 4. Pastikan hover juga tidak mengubah warna */
+body.halaman-menu .meal-card-link:hover,
+body.halaman-menu .meal-card-link:active {
+    color: inherit;
+}
+
+
+
+/* ================================
+   RESPONSIVE UNTUK <= 768px
+================================ */
+@media (max-width: 768px) {
+    .header-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+        align-items: flex-start;
+    }
+
+    .header-right {
+        text-align: left;
+        margin-top: 1rem;
+    }
+
+    .blood-group-wrapper {
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: .5rem;
+    }
+
+    .planner-container {
+        padding: 1rem;
+    }
+
+    body.halaman-menu .meal-cards {
+        flex-direction: column;
+    }
+
+    body.halaman-menu .macro-bar {
+        position: static;
+        width: 100%;
+        margin: 1rem 0 0;
+    }
+
+    body.halaman-menu .img-macro-wrap {
+        float: none;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    body.halaman-menu .img-macro-wrap .macro-bar {
+        position: static;
+        margin: 1rem 0 0;
+        width: 100%;
+    }
+
+    body.halaman-menu .meal-card img {
+        height: 140px;
+    }
+
+    .planner-intro h1 {
+        font-size: 1.75rem;
+    }
+
+    .planner-intro .subjudul {
+        font-size: 0.85rem;
+    }
+}
+
+/* ================================
+   RESPONSIVE UNTUK <= 600px
+================================ */
+@media (max-width: 600px) {
+    .header-wrap {
+        padding: 1rem;
+    }
+
+    .nav-list {
+        font-size: 0.9rem;
+    }
+
+    .btn-logout {
+        padding: .5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .blood-group {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+
+    .calories-wrapper input {
+        width: 80px;
+    }
+
+    .btn-buat,
+    .btn-reset {
+        width: 100%;
+        padding: .75rem;
+        font-size: 1rem;
+    }
+
+    body.halaman-menu .meal-phase {
+        padding: 1rem;
+    }
+
+    body.halaman-menu .meal-card h4 {
+        font-size: 1rem;
+    }
+
+    body.halaman-menu .meal-card p.cal {
+        font-size: 0.9rem;
+    }
+
+    body.halaman-menu .meal-card ul {
+        font-size: 0.9rem;
+    }
+
+    body.halaman-menu .meal-card img {
+        height: 120px;
+    }
+
+    .planner-intro .subjudul {
+        font-size: 0.8rem;
+    }
+}
