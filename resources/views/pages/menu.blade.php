@@ -97,29 +97,8 @@
 
             @foreach ($phases as $phase)
                 @php
-
-                    if ($refreshPhase === $phase) {
-                        // Hanya query ulang fase yang diminta refresh
-                        $menus = DB::table('menu_items')
-                            ->where('blood_group', $group)
-                            ->where('phase', $phase)
-                            ->inRandomOrder()
-                            ->limit(3)
-                            ->get();
-                    } else {
-                        // Query untuk fase lain bisa kamu simpan ke session dulu,
-                        // tapi kalau tidak mau session, tetap query db untuk fase lain juga
-                        $menus = DB::table('menu_items')
-                            ->where('blood_group', $group)
-                            ->where('phase', $phase)
-                            ->limit(3)
-                            ->get();
-                    }
-                @endphp
-
-                @php
-                    // Buat id yang aman: ganti spasi jadi tanda strip (-)
                     $safePhase = str_replace(' ', '-', $phase);
+                    $phaseMenus = $menus[$phase] ?? collect();
                 @endphp
 
                 <section class="meal-phase" id="{{ $safePhase }}">
@@ -130,7 +109,7 @@
                     </div>
 
                     <div class="meal-cards">
-                        @foreach ($menus as $m)
+                        @foreach ($phaseMenus as $m)
                             <a href="{{ route('recipe.show', ['id' => $m->id]) }}" class="meal-card-link">
                                 <div class="meal-card">
                                     <img src="{{ asset('images/' . $m->image) }}" alt="{{ $m->name }}">
@@ -150,6 +129,7 @@
                     </div>
                 </section>
             @endforeach
+
 
         </div>
     </main>

@@ -180,6 +180,7 @@
                 $diet = session('diet');
                 $kalori = session('kalori');
                 $selected_cal = $kalori[$diet];
+                session(['calories' => $selected_cal]); // Tambahan ini
 
                 $labels = [
                     'hilangkan_lemak' => 'Hilangkan Lemak',
@@ -219,7 +220,7 @@
 
                 <!-- Tombol Rencanakan Makanmu -->
                 <div class="mt-6">
-                    <a href="{{ route('planner') }}" style="background-color: #CAE0BC;"
+                    <a href="{{ route('planner.create') }}" style="background-color: #CAE0BC;"
                         class="text-black px-6 py-2 rounded hover:bg-green-700 transition-all">
                         Rencanakan Makananmu
                     </a>

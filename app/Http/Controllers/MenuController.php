@@ -30,26 +30,30 @@ class MenuController extends Controller
             'prot' => round(($calories * $macrosMap[$group]['prot'] / 100) / 4),
         ];
 
+
         $phases = ['Sarapan', 'Makan Siang', 'Camilan', 'Makan Malam'];
 
-        $menus = Session::get('menus', []);
-
         $refreshPhase = $request->query('refresh');
+        $menus = [];
+
         foreach ($phases as $phase) {
             if ($refreshPhase === null || $refreshPhase === $phase) {
-                $menus = DB::table('menu_items')
+                $phaseMenus = DB::table('menu_items')
                     ->where('blood_group', $group)
                     ->where('phase', $phase)
                     ->inRandomOrder()
                     ->limit(3)
                     ->get();
-                session()->put("menu.$phase", $menus); // hanya fase tertentu yang berubah
+                session()->put("menu.$phase", $phaseMenus); // update session
+            } else {
+                $phaseMenus = session("menu.$phase", collect());
             }
+
+            $menus[$phase] = $phaseMenus;
         }
 
-        Session::put('menus', $menus); // simpan/update ke session
+        session()->put('menus', $menus); // ini opsional, karena sudah disimpan per-phase
 
         return view('pages.menu', compact('group', 'calories', 'grams', 'phases', 'menus'));
     }
-
 }

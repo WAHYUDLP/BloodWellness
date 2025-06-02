@@ -73,8 +73,12 @@
                 <div class="form-row">
                     <div class="calories-wrapper">
                         <label for="calories">Jumlah kalori harian:</label>
+                        @php
+                            $calories = session('calories'); // ambil dari session jika tersedia
+                        @endphp
                         <input type="number" id="calories" name="calories"
                             value="{{ old('calories', $calories ?? '') }}" min="0" required>
+
                     </div>
 
                     <ul class="macros" data-default-group="{{ session('blood_group') ?? 'O' }}">
@@ -169,7 +173,8 @@
         <ul>
             <li><a href="{{ route('beranda') }}" id="home"><i class="fas fa-home"></i></a></li>
             <li><a href="{{ route('kalkulator') }}" id="kalkulator"><i class="fas fa-calculator"></i></a></li>
-            <li><a href="{{ route('planner.create') }}" id="makanan" class="active"><i class="fas fa-utensils"></i></a></li>
+            <li><a href="{{ route('planner.create') }}" id="makanan" class="active"><i
+                        class="fas fa-utensils"></i></a></li>
             <li><a href="{{ route('profile') }}" id="profil"><i class="fas fa-user"></i></a></li>
         </ul>
     </div>
