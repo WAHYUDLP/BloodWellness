@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Install dependencies
+# Install dependencies dan ekstensi PHP
 RUN apt-get update && apt-get install -y \
     libzip-dev unzip curl git \
     && docker-php-ext-install pdo pdo_mysql zip bcmath
@@ -8,16 +8,19 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Install Composer
+# Copy Composer dari image resmi
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy source
-COPY . /var/www/html
-
-# Set working dir
+# Set working directory di container
 WORKDIR /var/www/html
 
-# Set permission (Laravel specific)
+# Copy seluruh source code ke container
+COPY . /var/www/html
+
+# Jalankan composer install (buat install vendor)
+RUN composer install --no-dev --optimize-autoloader
+
+# Set permission folder Laravel
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 775 storage bootstrap/cache
 
