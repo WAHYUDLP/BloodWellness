@@ -17,7 +17,10 @@ jobs:
       - name: Build Docker images
         run: docker compose build
 
-      - name: Run PHPUnit tests (optional)
+      - name: Install PHP dependencies
+        run: docker compose run --rm web composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Run PHPUnit tests
         run: docker compose run --rm web php artisan test
 
 
