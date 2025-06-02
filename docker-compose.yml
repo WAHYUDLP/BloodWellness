@@ -18,7 +18,7 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword123    # password root MySQL, kamu bisa ganti sesuai keinginan
+      MYSQL_ROOT_PASSWORD: root    # password root MySQL, kamu bisa ganti sesuai keinginan
       MYSQL_DATABASE: bloodwellnessaccount    # nama database sesuai DB_DATABASE di .env
       MYSQL_USER: blooduser                    # username sesuai DB_USERNAME di .env
       MYSQL_PASSWORD: bloodpass123             # password sesuai DB_PASSWORD di .env
