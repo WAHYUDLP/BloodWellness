@@ -27,7 +27,7 @@ COPY . /var/www/html
 RUN composer install --no-dev --optimize-autoloader
 
 # Set permission storage dan cache Laravel
-RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache 
     && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Expose port 80 (Apache)
