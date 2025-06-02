@@ -1,0 +1,44 @@
+name: CI/CD Laravel Project
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build Docker images
+        run: docker-compose build
+
+      - name: Run PHPUnit tests (optional)
+        run: docker-compose run --rm web php artisan test
+
+  deploy:
+    needs: build-test
+    runs-on: ubuntu-latest
+    if: success()
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Deploy to Production via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/ubuntu/ProjectPAL
+            git pull origin main
+            docker-compose down
+            docker-compose up -d --build
+            docker exec ProjectPAL_web_1 php artisan migrate --force
+            docker exec ProjectPAL_web_1 php artisan cache:clear
+            docker exec ProjectPAL_web_1 php artisan config:cache

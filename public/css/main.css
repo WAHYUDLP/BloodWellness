@@ -22,3 +22,7 @@ main {
     margin: 0 auto;
     padding-bottom: 64px;
 }
+
+footer p {
+    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}

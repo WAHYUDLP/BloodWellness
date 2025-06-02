@@ -6,11 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Profil</title>
 
+    <!-- CSS Lokal -->
     <link rel="stylesheet" href="{{ asset('css/styleGeneral.css') }}" />
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;700&display=swap"
         rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Script lokal, di-load dengan defer -->
     <script src="{{ asset('js/script.js') }}" defer></script>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
 
@@ -215,10 +220,6 @@
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 BloodWellness</p>
-    </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const modal = document.getElementById('modalTambahEmail');
@@ -273,6 +274,10 @@
             });
         });
     </script>
+
+    <footer>
+        <p style="    font-family: 'Zen Kaku Gothic Antique';">&copy; 2025 BloodWellness</p>
+    </footer>
 </body>
 
 </html>
