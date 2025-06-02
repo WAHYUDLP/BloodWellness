@@ -26,11 +26,15 @@ services:
       - "3306:3306"
     volumes:
       - db-data:/var/lib/mysql
+      - storage-data:/var/www/html/storage
+
     networks:
       - app-network
 
 volumes:
   db-data:
+  storage-data:
+
 
 networks:
   app-network:
