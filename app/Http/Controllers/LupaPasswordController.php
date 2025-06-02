@@ -46,11 +46,13 @@ class LupaPasswordController extends Controller
         ]);
 
         // Kirim email OTP dengan Laravel Mail
-        Mail::send('emails.otp', ['otp' => $otp], function ($message) use ($email) {
-            $message->to($email)
-                ->subject('Kode OTP Reset Password - BloodWellness')
-                ->from('projecttiffilkom@gmail.com', 'BloodWellness');
-        });
+        // Mail::send('emails.otp', ['otp' => $otp], function ($message) use ($email) {
+        //     $message->to($email)
+        //         ->subject('Kode OTP Reset Password - BloodWellness')
+        //         ->from('projecttiffilkom@gmail.com', 'BloodWellness');
+        // });
+
+        Mail::to(users: $email)->send(new OTPVerificationMail($otp));
 
         // Simpan email di session untuk langkah berikutnya
         session(['otp_email' => $email]);
@@ -158,6 +160,8 @@ class LupaPasswordController extends Controller
             );
 
         // Kirim ulang email OTP
+        //  Mail::to(users: $email)->send(new OTPVerificationMail($otp));
+
         Mail::to($email)->send(new \App\Mail\OTPVerificationMail($otp));
 
         return back()->with('success', 'Kode OTP telah dikirim ulang ke email Anda.');

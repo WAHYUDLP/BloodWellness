@@ -56,4 +56,18 @@ class MenuController extends Controller
 
         return view('pages.menu', compact('group', 'calories', 'grams', 'phases', 'menus'));
     }
+    // Method untuk reset menu, dipanggil dari tombol "Buat Ulang"
+    public function reset()
+    {
+        // Hapus session menu supaya generate ulang di index nanti
+        Session::forget('menus');
+        Session::forget(['menu.Sarapan', 'menu.Makan Siang', 'menu.Camilan', 'menu.Makan Malam']);
+
+        // Hapus session yang terkait dengan planner juga
+        Session::forget('blood_group');
+        Session::forget('calories');
+
+        // Redirect ke halaman planner.create supaya user input ulang data
+        return redirect()->route('planner.create');
+    }
 }

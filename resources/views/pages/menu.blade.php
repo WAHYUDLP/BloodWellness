@@ -81,7 +81,7 @@
                     <li>Minimal {{ $grams['prot'] }} gr Protein</li>
                 </ul>
             </div>
-            <a href="{{ route('planner') }}" class="btn-reset">ATUR ULANG</a>
+            <a href="{{ route('menu.reset') }}" class="btn-reset">ATUR ULANG</a>
         </div>
 
         <div class="meal-plan" id="menuMam">

@@ -17,9 +17,15 @@ class OTPVerificationMail extends Mailable
         $this->otp = $otp;
     }
 
+    // public function build()
+    // {
+    //     return $this->subject('Kode OTP Anda')
+    //                 ->view('emails.otp');
+    // }
     public function build()
     {
-        return $this->subject('Kode OTP Anda')
-                    ->view('emails.otp');
+        return $this->subject('Kode OTP Reset Password - BloodWellness')
+            ->from('projecttiffilkom@gmail.com', 'BloodWellness')
+            ->view('emails.otp');
     }
 }

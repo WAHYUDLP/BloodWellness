@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Session;
 use App\Models\UserEmail; // Pastikan model UserEmail sudah ada
 
 class ProfileController extends Controller
@@ -101,20 +102,23 @@ class ProfileController extends Controller
 
     public function hapus(Request $request)
     {
-        // Pastikan user sudah login dan ID cocok
         $user = Auth::user();
 
         if (!$user || $user->id != $request->input('user_id')) {
             return redirect()->back()->withErrors(['error' => 'User tidak valid atau tidak ditemukan.']);
         }
 
-        // Logout dulu supaya sesi clear
-        Auth::logout();
+        Session::flush();
 
-        // Hapus user
+
+        // Logout dan invalidate session
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+
+        // Hapus user dari database
         $user->delete();
 
-        // Redirect ke halaman login dengan pesan sukses
         return redirect('/login')->with('status', 'Akun Anda berhasil dihapus.');
     }
 }

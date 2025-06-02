@@ -73,6 +73,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/update', [UserController::class, 'update'])->name('profile.update');
 });
 
+Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 
 
 Route::post('/upload-photo', [ProfileController::class, 'upload'])->name('upload.photo');
@@ -90,7 +91,7 @@ Route::post('/lupa-password/send-otp', [LupaPasswordController::class, 'sendOtp'
 Route::get('/verifikasi-otp', [LupaPasswordController::class, 'showVerifyForm'])->name('verifikasi_otp.form');
 Route::post('/verifikasi-otp', [LupaPasswordController::class, 'verifyOtp'])->name('verifikasi_otp.process');
 
-Route::get('/reset-password', [LupaPasswordController::class, 'showResetForm'])->name('reset_password.form');
+// Route::get('/reset-password', [LupaPasswordController::class, 'showResetForm'])->name('reset_password.form');
 Route::post('/reset-password', [LupaPasswordController::class, 'resetPassword'])->name('reset_password.submit');
 
 
@@ -98,3 +99,7 @@ Route::get('/lupa-password', [LupaPasswordController::class, 'showForm'])->name(
 Route::get('/kirim-ulang-otp', [LupaPasswordController::class, 'resend'])->name('otp.resend');
 // Route::delete('/profile/email/{id}/delete', [ProfileController::class, 'deleteEmail'])->name('profile.email.delete');
 Route::delete('profile/email/{id}', [ProfileController::class, 'destroy'])->name('profile.email.delete');
+Route::get('/reset-password', [LupaPasswordController::class, 'showResetForm'])
+    ->name('reset_password.form')
+    ->middleware('guest');  // biasanya pakai middleware guest
+Route::get('/menu/reset', [MenuController::class, 'reset'])->name('menu.reset');
