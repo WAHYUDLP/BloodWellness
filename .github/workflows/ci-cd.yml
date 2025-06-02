@@ -41,7 +41,7 @@ jobs:
           script: |
             cd /home/ubuntu/BloodWellness
             git pull origin main
-            docker-compose down
+            docker-compose pull
             docker-compose up -d --build
             docker exec bloodwellness-web-1 php artisan migrate --force
             docker exec bloodwellness-web-1 php artisan cache:clear
