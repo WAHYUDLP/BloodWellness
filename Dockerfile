@@ -8,16 +8,22 @@ RUN apt-get update && apt-get install -y \
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
+# Set Apache DocumentRoot ke /var/www/html/public
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+
+# Ubah default konfigurasi Apache agar DocumentRoot-nya mengarah ke /public
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/000-default.conf
+
 # Copy Composer dari image resmi
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory di container
-WORKDIR /var/www/html/public
+# Set working directory
+WORKDIR /var/www/html
 
-# Copy seluruh source code ke container
-COPY . /var/www/html/public
+# Copy semua file project Laravel ke container
+COPY . /var/www/html
 
-# Jalankan composer install (buat install vendor)
+# Jalankan composer install
 RUN composer install --no-dev --optimize-autoloader
 
 # Set permission folder Laravel
