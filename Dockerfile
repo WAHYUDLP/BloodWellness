@@ -12,17 +12,17 @@ RUN a2enmod rewrite
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Set working directory di container
-WORKDIR /var/www/html
+WORKDIR /var/www/html/public
 
 # Copy seluruh source code ke container
-COPY . /var/www/html
+COPY . /var/www/html/public
 
 # Jalankan composer install (buat install vendor)
 RUN composer install --no-dev --optimize-autoloader
 
 # Set permission folder Laravel
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 775 storage bootstrap/cache
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache \
+    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Expose port 80
 EXPOSE 80
