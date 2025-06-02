@@ -47,7 +47,7 @@
         <!-- Navbar Mobile -->
         <div class="mobile-navbar">
             <ul>
-                <li><a href="{{ route('beranda') }}" id="home" class="active"><i class="fas fa-home"></i></a></li>
+                <li><a class="active" href="{{ route('beranda') }}" id="home"><i class="fas fa-home"></i></a></li>
                 <li><a href="{{ route('kalkulator') }}" id="kalkulator"><i class="fas fa-calculator"></i></a></li>
                 <li><a href="{{ route('planner') }}" id="makanan"><i class="fas fa-utensils"></i></a></li>
                 <li><a href="{{ route('profile') }}" id="profil"><i class="fas fa-user"></i></a></li>

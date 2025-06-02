@@ -29,31 +29,32 @@ class KalkulatorController extends Controller
         $weight = $request->weight;
         $height = $request->height;
         $activity = $request->activity;
-
-        // Rumus BMR (Harris-Benedict Formula)
+        // BMR Mifflin-St Jeor
         if ($gender === 'Pria') {
-            $bmr = 66 + (13.7 * $weight) + (5 * $height) - (6.8 * $age);
+            $bmr = (10 * $weight) + (6.25 * $height) - (5 * $age) + 5;
         } else {
-            $bmr = 655 + (9.6 * $weight) + (1.8 * $height) - (4.7 * $age);
+            $bmr = (10 * $weight) + (6.25 * $height) - (5 * $age) - 161;
         }
 
-        // Aktivitas
+        // Faktor aktivitas (disesuaikan)
         $activity_factor = match ($activity) {
             'Sangat Rendah' => 1.2,
-            'Ringan' => 1.375,
-            'Sedang' => 1.55,
-            'Tinggi' => 1.725,
-            'Sangat Tinggi' => 1.9,
+            'Ringan' => 1.3,
+            'Sedang' => 1.45,
+            'Tinggi' => 1.6,
+            'Sangat Tinggi' => 1.75,
             default => 1
         };
 
         $tdee = $bmr * $activity_factor;
 
+        // Kalori
         $kalori = [
-            'hilangkan_lemak' => round($tdee - 500),
+            'hilangkan_lemak' => max(1200, round($tdee - 300)),
             'pertahankan' => round($tdee),
-            'bangun_massa_otot' => round($tdee + 500),
+            'bangun_massa_otot' => round($tdee + 300),
         ];
+
 
         // Simpan ke session
         session([
