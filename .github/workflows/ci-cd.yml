@@ -39,10 +39,10 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /home/ubuntu/ProjectPAL
+            cd /home/ubuntu/BloodWellness
             git pull origin main
             docker-compose down
             docker-compose up -d --build
-            docker exec ProjectPAL_web_1 php artisan migrate --force
-            docker exec ProjectPAL_web_1 php artisan cache:clear
-            docker exec ProjectPAL_web_1 php artisan config:cache
+            docker exec projectpal-web-1 php artisan migrate --force
+            docker exec projectpal-web-1 php artisan cache:clear
+            docker exec projectpal-web-1 php artisan config:cache
