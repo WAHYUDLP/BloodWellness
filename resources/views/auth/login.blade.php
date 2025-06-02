@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Masuk Akun BloodWellness</title>
     <link rel="stylesheet" href="{{ asset('css/styleGeneral.css') }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;700&display=swap"

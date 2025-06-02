@@ -19,6 +19,33 @@ class LoginController extends Controller
 
 
 
+    // public function login(Request $request)
+    // {
+    //     $credentials = $request->validate([
+    //         'email' => ['required', 'email'],
+    //         'password' => ['required'],
+    //     ]);
+
+    //     $remember = $request->has('remember');
+
+    //     if (Auth::attempt($credentials, $remember)) {
+    //         $request->session()->regenerate();
+
+    //         return redirect()->intended('/beranda'); // Redirect sesuai rute beranda kamu
+    //     }
+
+    //     return back()->withErrors([
+    //         'email' => 'Email atau password salah.',
+    //     ])->withInput($request->only('email'));
+    // }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login')->with('success', 'Anda berhasil keluar.');
+    }
     public function login(Request $request)
     {
         $credentials = $request->validate([
@@ -31,19 +58,26 @@ class LoginController extends Controller
         if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/beranda'); // Redirect sesuai rute beranda kamu
+            // Jika request AJAX, kirim JSON
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Login berhasil',
+                ]);
+            }
+
+            return redirect()->intended('/beranda');
+        }
+
+        if ($request->ajax()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Email atau password salah.',
+            ]);
         }
 
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ])->withInput($request->only('email'));
-    }
-
-    public function logout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/login')->with('success', 'Anda berhasil keluar.');
     }
 }

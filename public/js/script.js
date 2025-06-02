@@ -31,9 +31,9 @@ setTimeout(() => {
 
 //Konfirmasi logout
 function confirmLogout() {
-    if (confirm("Apakah Anda yakin ingin keluar?")) {
-        document.getElementById('logout-form').submit();
-    }
+  if (confirm("Apakah Anda yakin ingin keluar?")) {
+    document.getElementById('logout-form').submit();
+  }
 }
 
 // Ambil semua link navbar mobile
@@ -71,11 +71,11 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const remember = document.querySelector("input[name='remember']").checked;
-
-  fetch("prosesLogin.php", {
+  fetch("/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
+      "X-CSRF-TOKEN": token
     },
     body: new URLSearchParams({
       email: email,
@@ -86,28 +86,28 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
 
     .then(response => response.json())
     .then(data => {
-        const errorDiv = document.getElementById("login-error");
-        const successDiv = document.getElementById("login-success");
+      const errorDiv = document.getElementById("login-error");
+      const successDiv = document.getElementById("login-success");
 
-        if (data.success) {
-            // Menampilkan pesan sukses
-            successDiv.style.display = "block";
-            successDiv.textContent = "Login sukses!";
-            setTimeout(() => {
-                successDiv.style.display = "none";
-            }, 3000); // Sembunyikan setelah 3 detik
+      if (data.success) {
+        // Menampilkan pesan sukses
+        successDiv.style.display = "block";
+        successDiv.textContent = "Login sukses!";
+        setTimeout(() => {
+          successDiv.style.display = "none";
+        }, 3000); // Sembunyikan setelah 3 detik
 
-            window.location.href = "beranda.php"; // redirect jika login sukses
-        } else {
-            // Menampilkan pesan error
-            errorDiv.style.display = "block";
-            errorDiv.textContent = data.message || "Login gagal. Periksa kembali email dan password.";
-            setTimeout(() => {
-                errorDiv.style.display = "none";
-            }, 3000); // Sembunyikan setelah 3 detik
-        }
+        window.location.href = "beranda.php"; // redirect jika login sukses
+      } else {
+        // Menampilkan pesan error
+        errorDiv.style.display = "block";
+        errorDiv.textContent = data.message || "Login gagal. Periksa kembali email dan password.";
+        setTimeout(() => {
+          errorDiv.style.display = "none";
+        }, 3000); // Sembunyikan setelah 3 detik
+      }
     })
-    
+
     .catch((error) => {
       const errorDiv = document.getElementById("login-error");
       errorDiv.style.display = "block";
