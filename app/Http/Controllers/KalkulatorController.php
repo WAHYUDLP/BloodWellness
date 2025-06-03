@@ -29,11 +29,18 @@ class KalkulatorController extends Controller
         $weight = $request->weight;
         $height = $request->height;
         $activity = $request->activity;
-        // BMR Mifflin-St Jeor
-        if ($gender === 'Pria') {
-            $bmr = (10 * $weight) + (6.25 * $height) - (5 * $age) + 5;
+        // Gunakan Katch-McArdle jika body_fat diisi
+        if (!empty($body_fat)) {
+            $body_fat_percentage = $body_fat / 100; // konversi ke desimal
+            $lbm = $weight * (1 - $body_fat_percentage); // massa tanpa lemak
+            $bmr = 370 + (21.6 * $lbm);
         } else {
-            $bmr = (10 * $weight) + (6.25 * $height) - (5 * $age) - 161;
+            // BMR Mifflin-St Jeor
+            if ($gender === 'Pria') {
+                $bmr = (10 * $weight) + (6.25 * $height) - (5 * $age) + 5;
+            } else {
+                $bmr = (10 * $weight) + (6.25 * $height) - (5 * $age) - 161;
+            }
         }
 
         // Faktor aktivitas (disesuaikan)
