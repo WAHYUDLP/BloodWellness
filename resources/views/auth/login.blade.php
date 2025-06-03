@@ -100,7 +100,7 @@
                 @endif
 
 
-                <p class="heading">AYO MULAI SEKARANG!</p>
+                <p class="heading">AYO MULAI SEKARANG di PAL!</p>
                 <h3 class="heading3">Masuk Akun</h3>
 
                 <form action="{{ route('login') }}" method="POST">

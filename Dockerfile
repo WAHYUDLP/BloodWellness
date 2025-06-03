@@ -5,6 +5,10 @@ RUN apt-get update && apt-get install -y \
     libzip-dev unzip curl git \
     && docker-php-ext-install pdo pdo_mysql zip bcmath
 
+# Install Composer
+#   run: docker compose run --rm web composer install --no-interaction --prefer-dist --optimize-autoloader
+
+
 # Aktifkan mod_rewrite Apache (penting untuk Laravel routing)
 RUN a2enmod rewrite
 

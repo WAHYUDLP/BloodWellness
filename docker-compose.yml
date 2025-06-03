@@ -13,6 +13,14 @@ services:
       - app-network
     environment:
       APACHE_DOCUMENT_ROOT: /var/www/html/public
+      MAIL_MAILER: smtp
+      MAIL_HOST: smtp.gmail.com
+      MAIL_PORT: 587
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MAIL_ENCRYPTION: tls
+      MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+      MAIL_FROM_NAME: "BloodWellness"
 
       
       # MAIL_MAILER: smtp
