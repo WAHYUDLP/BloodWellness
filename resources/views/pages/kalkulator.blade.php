@@ -309,11 +309,11 @@
                 <p class="mt-2 text-sm">Setelah mengetahui TDEE, kebutuhan kalori akan disesuaikan berdasarkan tujuan
                     diet:</p>
                 <ul class="list-disc ml-6 mt-2 text-sm space-y-1">
-                    <li><strong>Menurunkan berat badan (defisit kalori):</strong> Mengurangi sekitar 500 kalori dari
+                    <li><strong>Menurunkan berat badan (defisit kalori):</strong> Mengurangi sekitar 300 kalori dari
                         TDEE agar tubuh membakar lemak sebagai energi.</li>
                     <li><strong>Mempertahankan berat badan:</strong> Asupan kalori disamakan dengan TDEE, menjaga berat
                         tetap stabil.</li>
-                    <li><strong>Meningkatkan massa otot (surplus kalori):</strong> Menambahkan sekitar 500 kalori di
+                    <li><strong>Meningkatkan massa otot (surplus kalori):</strong> Menambahkan sekitar 300 kalori di
                         atas TDEE untuk mendukung pembentukan otot, terutama bila disertai olahraga intens.</li>
                 </ul>
             </details>
