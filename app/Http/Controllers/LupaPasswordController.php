@@ -161,8 +161,9 @@ class LupaPasswordController extends Controller
 
         // Kirim ulang email OTP
         //  Mail::to(users: $email)->send(new OTPVerificationMail($otp));
+        Mail::to($email)->send(new OTPVerificationMail($otp));
 
-        Mail::to($email)->send(new \App\Mail\OTPVerificationMail($otp));
+        // Mail::to($email)->send(new \App\Mail\OTPVerificationMail($otp));
 
         return back()->with('success', 'Kode OTP telah dikirim ulang ke email Anda.');
     }
