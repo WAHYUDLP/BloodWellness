@@ -15,14 +15,14 @@ services:
       APACHE_DOCUMENT_ROOT: /var/www/html/public
 
       
-      MAIL_MAILER: smtp
-      MAIL_HOST: smtp.gmail.com
-      MAIL_PORT: 587
-      MAIL_USERNAME: projecttiffilkom@gmail.com
-      MAIL_PASSWORD: ftaubodykkdxeilr
-      MAIL_ENCRYPTION: tls
-      MAIL_FROM_ADDRESS: projecttiffilkom@gmail.com
-      MAIL_FROM_NAME: "BloodWellness"
+      # MAIL_MAILER: smtp
+      # MAIL_HOST: smtp.gmail.com
+      # MAIL_PORT: 587
+      # MAIL_USERNAME: projecttiffilkom@gmail.com
+      # MAIL_PASSWORD: ftaubodykkdxeilr
+      # MAIL_ENCRYPTION: tls
+      # MAIL_FROM_ADDRESS: projecttiffilkom@gmail.com
+      # MAIL_FROM_NAME: "BloodWellness"
 
 
   db:
