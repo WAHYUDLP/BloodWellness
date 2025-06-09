@@ -79,3 +79,5 @@ docker ps
 ```
 
 - Pastikan container aplikasi (Laravel) dan database (MySQL) berstatus Up dan port sudah ter-ekspos dengan benar.
+
+# Cara Menangani Error
