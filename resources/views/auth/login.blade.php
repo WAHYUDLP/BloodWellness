@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Masuk Akun BloodWellness</title>
     <link rel="stylesheet" href="{{ asset('css/styleGeneral.css') }}">
@@ -80,7 +81,7 @@
                 </div>
             </div>
 
-            <section id="form-login" class="register-form">
+            <section id="loginForm" class="register-form">
 
                 @if ($success)
                     <div class="success-message">{{ $success }}</div>
