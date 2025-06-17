@@ -65,12 +65,14 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.getElementById("loginForm").addEventListener("submit", function (e) {
+document.getElementById("C").addEventListener("submit", function (e) {
   e.preventDefault();
 
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const remember = document.querySelector("input[name='remember']").checked;
+  const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
   fetch("/login", {
     method: "POST",
     headers: {
@@ -97,7 +99,7 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
           successDiv.style.display = "none";
         }, 3000); // Sembunyikan setelah 3 detik
 
-        window.location.href = "beranda.php"; // redirect jika login sukses
+        window.location.href = "/beranda"; // redirect jika login sukses
       } else {
         // Menampilkan pesan error
         errorDiv.style.display = "block";
