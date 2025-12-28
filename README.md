@@ -1,4 +1,49 @@
-# Automasi Deployment dan Testing dengan Trigger Repository Menggunakan GitHub Actions dan Docker Compose Pada Web BloodWellness
+# 🩸 BloodWellness: Automated Deployment & Testing System
+
+[![Laravel](https://img.shields.io/badge/Framework-Laravel-FF2D20.svg)](https://laravel.com/)
+[![Docker](https://img.shields.io/badge/DevOps-Docker_Compose-2496ED.svg)](https://www.docker.com/)
+[![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF.svg)](https://github.com/features/actions)
+[![AWS](https://img.shields.io/badge/Cloud-AWS_EC2-FF9900.svg)](https://aws.amazon.com/ec2/)
+
+> **⚠️ Project Status Note:** > Saat ini, instance AWS EC2 untuk proyek ini sedang dinonaktifkan untuk pengelolaan biaya. Dokumentasi di bawah ini mencerminkan arsitektur infrastruktur dan workflow yang telah berhasil diimplementasikan dan diuji secara penuh.
+
+Proyek ini berfokus pada implementasi **Automasi Deployment dan Testing** menggunakan mekanisme trigger repository pada aplikasi **BloodWellness**. Sistem ini dirancang untuk memastikan stabilitas kode melalui pipeline CI/CD yang terintegrasi penuh antara GitHub, Docker, dan server AWS EC2.
+
+---
+
+## 🚀 Fitur Utama Aplikasi
+
+BloodWellness menyediakan fitur kesehatan sebagai berikut:
+* **Kalkulator Kesehatan Komprehensif:** * **Katch-McArdle:** Perhitungan BMR berbasis massa tubuh tanpa lemak (LBM) dengan rumus $BMR = 370 + (21.6 \times LBM)$.
+    * **Mifflin-St Jeor:** Estimasi BMR standar untuk pria ($10 \times berat + 6.25 \times tinggi - 5 \times usia + 5$) dan wanita ($10 \times berat + 6.25 \times tinggi - 5 \times usia - 161$).
+* **Manajemen Profil & Resep:** Pengelolaan data nutrisi harian dan pencatatan resep makanan.
+* **Sistem Keamanan:** Integrasi verifikasi OTP dan manajemen session terenkripsi.
+
+---
+
+## 🏗️ Arsitektur CI/CD & Infrastruktur
+
+Sistem ini mengotomatiskan seluruh siklus hidup aplikasi dari kode hingga produksi:
+
+### 1. Pipeline GitHub Actions
+Setiap `push` ke branch utama memicu workflow otomatis:
+* **Build & Test:** Menjalankan `composer install`, setup environment, dan pengujian unit melalui **PHPUnit**.
+* **Dockerization:** Membangun (build) Docker image berdasarkan `Dockerfile` aplikasi.
+* **Auto-Deploy:** Melakukan koneksi SSH aman ke AWS EC2 untuk pull image terbaru dan menjalankan ulang container.
+
+### 2. Orkestrasi Docker Compose
+Mengelola multi-container environment yang terdiri dari:
+* **App Container:** Laravel (PHP-FPM & Nginx).
+* **Database Container:** MySQL untuk penyimpanan data persisten.
+
+### 3. Infrastruktur AWS EC2
+* **OS:** Ubuntu 24.04 LTS.
+* **Security:** Konfigurasi Inbound Rules pada port 22 (SSH), 80 (HTTP), dan 8080 (HTTP alternatif).
+* **Deployment:** Menjalankan container secara terisolasi untuk stabilitas environment.
+
+---
+
+## 📂 Dokumentasi Automasi Deployment dan Testing dengan Trigger Repository Menggunakan GitHub Actions dan Docker Compose 
 
 ## 1. Membuat EC2 Instance
 - Masuk ke AWS Management Console → EC2 → Launch Instance.
