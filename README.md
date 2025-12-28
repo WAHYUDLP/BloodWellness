@@ -1,4 +1,4 @@
-# Automasi Deployment dan Testing dengan Trigger Repository Menggunakan GitHub Actions dan Docker Compose
+# Automasi Deployment dan Testing dengan Trigger Repository Menggunakan GitHub Actions dan Docker Compose Pada Web BloodWellness
 
 ## 1. Membuat EC2 Instance
 - Masuk ke AWS Management Console → EC2 → Launch Instance.
